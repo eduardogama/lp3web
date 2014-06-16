@@ -3,12 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <title>Debate eleitoral</title>
+
+<link rel="stylesheet" type="text/css" href="resources/style/main-style.css" />
+
+
 </head>
 <body>
 
-<div class="card signin-card">
-
-</div>
+	<div class="card signin-card">
+	
+		<form action="AuthenticationServlet" method="post" >
+			<label for="login" class="hidden-label">Login:</label>
+			<input name="login" id="login" placeholder="Login" type="text"/>
+			<label for="pwd" class="hidden-label">Password:</label>
+			<input name="pwd" id="pwd" placeholder="Senha" type="password"  />
+	
+			<input id="submit" name="submit" value="Fazer login" type="submit" class="rc-button rc-button-submit" />
+		</form>
+	
+	</div>
 
 </body>
 </html>
