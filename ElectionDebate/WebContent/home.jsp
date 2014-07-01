@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<%@ page language="java" errorPage="error-pages/error.html" %>
+
+
 <html>
 <head>
 <meta charset="UTF-8">
