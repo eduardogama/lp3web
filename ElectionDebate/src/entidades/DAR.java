@@ -1,8 +1,6 @@
 package entidades;
 
 import java.util.List;
-import java.util.Vector;
-import java.util.Iterator;
 
 import dar.business.CadastroDebates;
 import dar.data.memoria.DAODebateMemoria;

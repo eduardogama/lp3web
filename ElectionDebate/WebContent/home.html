@@ -3,10 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <title>Debate Eleitoral</title>
-</head>
-<body>
 
-	
+	<link rel="stylesheet" type="text/css" href="resources/style/home-style.css" />
+
+</head>
+<body class="ui-mobile-viewport">
+
+	<div id="content-page" class="">
+
+		<div id="header">
+			<h1>Debates Eleitorais</h1>
+		</div>
+
+		<div class="card signin-card">
+
+			<form action="servletDAR" method="post" name="formDebates">
+
+				<input type="hidden" name="comando" value="ShowDebates" /> <input
+					type="submit" value="Cadastrar debate" />
+
+			</form>
+
+		</div>
+
+	</div>
 
 </body>
 </html>

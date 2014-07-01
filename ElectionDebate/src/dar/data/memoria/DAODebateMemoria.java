@@ -20,7 +20,7 @@ public class DAODebateMemoria implements IDAODebate {
 
 		Candidato candidato = new Candidato("Eduardo Aranha", debate);
 		candidato = new Candidato("Roberta Coelho", debate);
-		candidato = new Candidato("Uir� Kulesza", debate);
+		candidato = new Candidato("Raoni Kulesza", debate);
 
 		this.debates.add(debate);
 
