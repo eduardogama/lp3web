@@ -20,6 +20,9 @@
 
 		<div class="card signin-card">
 
+			<div id="lista-debates"></div>
+
+
 			<form action="servletDAR" method="post" name="formDebates">
 
 				<input type="hidden" name="comando" value="ShowDebates" /> 

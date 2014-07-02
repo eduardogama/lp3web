@@ -8,8 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dar.business.DAR;
 import entidades.Candidato;
-import entidades.DAR;
 
 public class ShowCandidatos extends AbstractCommand {
 

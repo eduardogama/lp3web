@@ -8,7 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import entidades.*;
+import dar.business.DAR;
+import entidades.Debate;
 
 public class ShowDebates extends AbstractCommand {
 
