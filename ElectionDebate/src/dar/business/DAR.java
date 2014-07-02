@@ -1,9 +1,10 @@
-package entidades;
+package dar.business;
 
 import java.util.List;
 
-import dar.business.CadastroDebates;
 import dar.data.memoria.DAODebateMemoria;
+import entidades.Candidato;
+import entidades.Debate;
 
 public class DAR {
 
