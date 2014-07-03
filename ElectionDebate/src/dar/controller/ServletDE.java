@@ -24,6 +24,7 @@ public class ServletDE extends HttpServlet {
 		this.commands = new Hashtable<String, AbstractCommand>();
 
 		this.commands.put("ShowDebates", new ShowDebates());
+		this.commands.put("ShowDebate", new ShowDebate());
 		this.commands.put("ShowCandidatos", new ShowCandidatos());
 		this.commands.put("RegisterDebate", new RegisterDebate());
 	}
@@ -53,6 +54,7 @@ public class ServletDE extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String cmd = request.getParameter("comando");
+				
 		try {
 			AbstractCommand command = (AbstractCommand) commands.get(cmd);
 			command.execute(request, response);
