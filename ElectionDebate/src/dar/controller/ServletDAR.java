@@ -41,7 +41,6 @@ public class ServletDAR extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(">>>>>");
 		this.doPost(request, response);
 	}
 
@@ -53,7 +52,6 @@ public class ServletDAR extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 
 		String cmd = request.getParameter("comando");
-		System.out.println(">>>>>" + cmd);
 		try {
 			AbstractCommand command = (AbstractCommand) commands.get(cmd);
 			command.execute(request, response);
