@@ -23,14 +23,14 @@
 			<div id="lista-debates"></div>
 
 
-			<form action="servletDAR" method="post" name="formDebates">
+			<form action="ServletDE" method="post" name="formDebates">
 
 				<input type="hidden" name="comando" value="CadastrarDebates" /> 
 				<input type="submit" value="Cadastrar debate" class="rc-button rc-button-submit" />
 
 			</form>
 			<br />
-			<form action="servletDAR" method="post" name="formDebates">
+			<form action="ServletDE" method="post" name="formDebates">
 
 				<input type="hidden" name="comando" value="ShowDebates" /> 
 				<input type="submit" value="Listar debate" class="rc-button rc-button-submit" />

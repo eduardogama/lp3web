@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class ServletDAR
+ * Servlet implementation class ServletDE
  */
-@WebServlet("/ServletDAR")
-public class ServletDAR extends HttpServlet {
+@WebServlet("/ServletDE")
+public class ServletDE extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	private Hashtable<String, AbstractCommand> commands;
@@ -30,7 +30,7 @@ public class ServletDAR extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public ServletDAR() {
+	public ServletDE() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
