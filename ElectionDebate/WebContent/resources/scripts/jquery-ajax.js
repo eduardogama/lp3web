@@ -16,5 +16,5 @@ function ShowDebates(){
 }
 
 function showDebates(debates){
-	alert('asdas');
+	
 }

@@ -17,7 +17,6 @@ public class DAR {
 	}
 
 	public static DAR getInstance(){
-		
 		if (singleton == null){
 			singleton = new DAR();
 		}		

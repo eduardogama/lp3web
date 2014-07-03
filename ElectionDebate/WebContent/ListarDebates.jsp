@@ -20,7 +20,9 @@
 			</c:forEach>
 			<form action="ServletDAR" method="post" name="formDebates">
 				<input type="hidden" name="comando" value="RegisterDebates" /> 
-				<input type="submit" value="Cadastrar debate" class="rc-button rc-button-submit" />
+				<a href="CadastrarDebate.jsp" >
+					<input type="button"  value="Cadastrar debate" class="rc-button rc-button-submit" />
+				</a>
 			</form>
 		</div>
 

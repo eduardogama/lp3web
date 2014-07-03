@@ -25,6 +25,7 @@ public class ServletDE extends HttpServlet {
 
 		this.commands.put("ShowDebates", new ShowDebates());
 		this.commands.put("ShowCandidatos", new ShowCandidatos());
+		this.commands.put("RegisterDebate", new RegisterDebate());
 	}
 
 	/**
