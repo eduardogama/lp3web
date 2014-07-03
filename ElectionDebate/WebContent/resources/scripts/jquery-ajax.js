@@ -1,8 +1,5 @@
-$(function() {
-	
-	
+$(function() {	
 	ShowDebates();
-	alert('saadasdd');
 });
 
 

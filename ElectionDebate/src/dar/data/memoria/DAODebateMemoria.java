@@ -1,5 +1,6 @@
 package dar.data.memoria;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Vector;
@@ -14,8 +15,9 @@ public class DAODebateMemoria implements IDAODebate {
 
 	public DAODebateMemoria() {
 
-		this.debates = new Vector<Debate>();
+		this.debates = new ArrayList<Debate>();
 
+		// Debate eleitoral 1
 		Debate debate = new Debate("Debate eleitoral 1");
 
 		Candidato candidato = new Candidato("Eduardo Aranha", debate);
@@ -25,13 +27,11 @@ public class DAODebateMemoria implements IDAODebate {
 		this.debates.add(debate);
 
 		// Debate eleitoral 2
-
 		debate = new Debate("Debate eleitoral 2");
 
 		this.debates.add(debate);
 
 		// Debate eleitoral 3
-
 		debate = new Debate("Debate eleitoral 3");
 
 		this.debates.add(debate);
@@ -61,9 +61,6 @@ public class DAODebateMemoria implements IDAODebate {
 
 	@Override
 	public void inserirDebate(Debate debate) {
-//		if (this.debates == null) {
-//			throw new BDException();
-//		}
 		this.debates.add(debate);
 	}
 
