@@ -1,40 +1,49 @@
-package de;
+package de.controller.debate;
 
 import java.io.IOException;
-import java.util.List;
+import java.util.HashMap;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import de.business.DAR;
+import de.business.PortalDE;
 import de.controller.AbstractCommand;
 import entidades.Debate;
 
-public class ShowDebate  extends AbstractCommand {
+public class EditDebate extends AbstractCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		try {
+			PortalDE de = PortalDE.getInstance();
 			
-			DAR de = DAR.getInstance();
 			
 			String nome = request.getParameter("nome");
 			
-			System.out.println(">>>>>" + nome);
-			Debate debate = de.getDebateporNome(nome);
 			
-			request.setAttribute("debate", debate);
+			HashMap<String,Debate> debates = de.listarDebates();
 			
-			RequestDispatcher view = request.getRequestDispatcher("/debate-eleitoral.jsp");
+			Debate dbte = debates.get(nome);
 			
+			
+			dbte.setNome(request.getParameter("nome"));
+			dbte.setDescricao(request.getParameter("descricao"));
+			dbte.setData(request.getParameter("data"));
+			
+			debates.remove(nome);
+			de.insertDebate(dbte);
+			
+			request.setAttribute("debates", de.listarDebates().values());
+			
+			RequestDispatcher view = request.getRequestDispatcher("/ListarDebates.jsp");
 			view.forward(request, response);
 			
-			System.out.println("ShowDebate");
-		
+			System.out.println("Editebate");
+			
 		}catch(Exception e){
 			request.setAttribute("msgErro", e.getMessage());			
 			request.getRequestDispatcher("/error2.jsp").forward(request, response);			

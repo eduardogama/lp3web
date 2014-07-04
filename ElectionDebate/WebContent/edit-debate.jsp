@@ -18,10 +18,18 @@
 		<div class="card signin-card">
 			
 			<form action="ServletDAR" method="post" name="formDebates">
+				<label for="nome">Nome:</label>
+				<input name="nome" id="nome" value="<c:out value="${debate.nome}" />" placeholder="nome" type="text"/>			
+				<br />
+				<label for="descricao" >Descricao:</label>
+				<input name="descricao" id="descricao" value="<c:out value="${debate.descricao}" />" placeholder="descricao" type="text"/>
+				<br />
+				<label for="data" >Data:</label>
+				<input name="data" id="data" value="<c:out value="${debate.data}" />" placeholder="data" type="text"/>
+				<br />
 				<input type="hidden" name="comando" value="RegisterDebates" /> 
-				<a href="CadastrarDebate.jsp" >
-					<input type="button"  value="Cadastrar debate" class="rc-button rc-button-submit" />
-				</a>
+				<input type="hidden" name="nome" value="${debate.nome} }" /> 
+				<input type="button"  value="Cadastrar debate" class="rc-button rc-button-submit" />
 			</form>
 		</div>
 

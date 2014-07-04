@@ -1,33 +1,31 @@
-package de;
+package de.controller.debate;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import de.business.DAR;
+import de.business.PortalDE;
 import de.controller.AbstractCommand;
-import entidades.Debate;
 
-public class ShowDebates extends AbstractCommand {
+public class DeleteDebate extends AbstractCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		try {
-			DAR dar = DAR.getInstance();
-			HashMap<String,Debate> debates = dar.listarDebates();
-			request.setAttribute("debates", debates.values());
+			PortalDE de = PortalDE.getInstance();
+			
+			String dbte = request.getParameter("nome");
+			
+			de.listarDebates().remove(dbte);
 			
 			RequestDispatcher view = request.getRequestDispatcher("/ListarDebates.jsp");
 			view.forward(request, response);
 			
-			System.out.println("ShowDebates");
+			System.out.println("DeleteDebate");
 		
 		}catch(Exception e){
 			request.setAttribute("msgErro", e.getMessage());			

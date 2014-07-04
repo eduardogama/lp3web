@@ -10,10 +10,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import de.DeleteDebate;
-import de.RegisterDebate;
-import de.ShowDebate;
-import de.ShowDebates;
+import de.controller.debate.DeleteDebate;
+import de.controller.debate.EditDebate;
+import de.controller.debate.RegisterDebate;
+import de.controller.debate.ShowDebate;
+import de.controller.debate.ShowDebates;
 
 /**
  * Servlet implementation class ServletDE
@@ -33,6 +34,8 @@ public class ServletDE extends HttpServlet {
 		this.commands.put("ShowCandidatos", new ShowCandidatos());
 		this.commands.put("RegisterDebate", new RegisterDebate());
 		this.commands.put("DeleteDebate", new DeleteDebate());
+		this.commands.put("EditDebate", new EditDebate());
+
 	}
 
 	/**

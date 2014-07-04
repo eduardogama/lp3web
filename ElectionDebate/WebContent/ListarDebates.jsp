@@ -25,7 +25,14 @@
 							<input type="hidden" name="comando" value="ShowDebate" /> 
 							<input type="hidden" name="nome" value="${debate.nome}" /> 
 							<input type="submit" value="view" class="rc-button" />
-						</form>		
+						</form>
+						
+						<form action="ServletDE" method="post" name="formDebates">
+							<input type="hidden" name="comando" value="EditDebate" /> 
+							<input type="hidden" name="nome" value="${debate.nome}" /> 
+							<input type="submit" value="edit" class="rc-button" />
+						</form>
+								
 						<input type="submit" title="${debate.nome}" name="debate-view" value="View" class="rc-button debate-delete" />
 						<input type="button" title="${debate.nome}" name="debate-delete" value="Delete" class="rc-button debate-delete" />
 						<input type="button" title="${debate.nome}" name="debate-edit" value="Editar" class="rc-button debate-delete" />

@@ -7,19 +7,19 @@ import de.data.memoria.DAODebateMemoria;
 import entidades.Candidato;
 import entidades.Debate;
 
-public class DAR {
+public class PortalDE {
 
-	private static DAR singleton = null;
+	private static PortalDE singleton = null;
 
 	private CadastroDebates cadDebates;
 
-	private DAR() {
+	private PortalDE() {
 		this.cadDebates = new CadastroDebates(new DAODebateMemoria());
 	}
 
-	public static DAR getInstance() {
+	public static PortalDE getInstance() {
 		if (singleton == null) {
-			singleton = new DAR();
+			singleton = new PortalDE();
 		}
 		return singleton;
 	}
