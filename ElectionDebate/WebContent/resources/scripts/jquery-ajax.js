@@ -1,7 +1,28 @@
 $(function() {	
 //	ShowDebates();
 	$("input[name='debate-view']").click(DebateView);
+	$("input[name='debate-delete']").click(DebateDelete);
+	
+//	DebateView();
 });
+
+
+function loadDebate(){
+	$.getJSON("ServletDE", {comando : "ShowDebates"})
+		.done( function () {
+			console.log("success");
+		});
+}
+
+function DebateDelete(){
+	var debate = $(this).attr('title');
+	
+	$.get("ServletDE",{nome : debate, comando : "DeleteDebate"});
+	
+	$(this).parent('li').hide('slow', function() {
+		$(this).remove();
+	});
+}
 
 function DebateView(){
 	var debate = $(this).attr('title');
@@ -9,15 +30,15 @@ function DebateView(){
 	$.ajax({
 		type: "GET",
 		url : "ServletDE",
-		data : "comando=ShowDebate&nome="+debate,
+		data : "comando=ShowDebates&nome="+debate,
 		dataType : "json",
-		async : false,
-		complete : function(response){
-			console.log(response.responseText);
-			if(response.responseText){
-				console.log("asdad");
-				window.location.href = "debate-eleitoral.jsp";
-			}
+		success: function( data, textStatus, jqXHR) {
+			
+			console.log(data.nome);
+//			if(response.responseText){
+//				console.log("asdad");
+//				
+//			}
 		}
 	});
 	

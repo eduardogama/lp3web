@@ -1,8 +1,9 @@
-package dar.business;
+package de.business;
 
+import java.util.HashMap;
 import java.util.List;
 
-import dar.data.memoria.DAODebateMemoria;
+import de.data.memoria.DAODebateMemoria;
 import entidades.Candidato;
 import entidades.Debate;
 
@@ -23,11 +24,11 @@ public class DAR {
 		return singleton;
 	}
 
-	public List<Debate> listarDebates() {
+	public HashMap<String, Debate> listarDebates() {
 		return this.cadDebates.listarDebates();
 	}
 
-	public List<Candidato> listarCandidatos() {
+	public HashMap<String, Candidato> listarCandidatos() {
 		return this.cadDebates.listarCandidatos();
 	}
 
@@ -37,8 +38,8 @@ public class DAR {
 
 	public Debate getDebateporNome(String nome) {
 
-		for (Debate dbte : listarDebates()) {
-			if(dbte.getNome().equals(nome)){
+		for (Debate dbte : listarDebates().values()) {
+			if (dbte.getNome().equals(nome)) {
 				return dbte;
 			}
 		}

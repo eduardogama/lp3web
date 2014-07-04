@@ -1,40 +1,31 @@
-package dar.controller;
+package de;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dar.business.DAR;
-import entidades.Debate;
+import de.business.DAR;
+import de.controller.AbstractCommand;
 
-public class RegisterDebate extends AbstractCommand {
+public class DeleteDebate extends AbstractCommand {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		try {
 			DAR de = DAR.getInstance();
 			
-			Debate dbte = new Debate();
-
-			dbte.setNome(request.getParameter("nome"));
-			dbte.setDescricao(request.getParameter("descricao"));
-			dbte.setData(request.getParameter("data"));
-
-			de.insertDebate(dbte);
+			String dbte = request.getParameter("nome");
 			
-			List<Debate> debates = de.listarDebates();
-			request.setAttribute("debates", debates);
+			de.listarDebates().remove(dbte);
 			
 			RequestDispatcher view = request.getRequestDispatcher("/ListarDebates.jsp");
 			view.forward(request, response);
 			
-			System.out.println("ShowDebates");
+			System.out.println("DeleteDebate");
 		
 		}catch(Exception e){
 			request.setAttribute("msgErro", e.getMessage());			

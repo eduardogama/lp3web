@@ -1,4 +1,4 @@
-package dar.controller;
+package de.controller;
 
 import java.io.IOException;
 import java.util.Hashtable;
@@ -9,6 +9,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import de.DeleteDebate;
+import de.RegisterDebate;
+import de.ShowDebate;
+import de.ShowDebates;
 
 /**
  * Servlet implementation class ServletDE
@@ -27,6 +32,7 @@ public class ServletDE extends HttpServlet {
 		this.commands.put("ShowDebate", new ShowDebate());
 		this.commands.put("ShowCandidatos", new ShowCandidatos());
 		this.commands.put("RegisterDebate", new RegisterDebate());
+		this.commands.put("DeleteDebate", new DeleteDebate());
 	}
 
 	/**
