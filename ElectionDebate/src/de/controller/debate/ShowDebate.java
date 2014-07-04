@@ -23,14 +23,12 @@ public class ShowDebate  extends AbstractCommand {
 			PortalDE de = PortalDE.getInstance();
 			
 			String nome = request.getParameter("nome");
-			
-			System.out.println(">>>>>" + nome);
+
 			Debate debate = de.getDebateporNome(nome);
 			
 			request.setAttribute("debate", debate);
 			
 			RequestDispatcher view = request.getRequestDispatcher("/debate-eleitoral.jsp");
-			
 			view.forward(request, response);
 			
 			System.out.println("ShowDebate");

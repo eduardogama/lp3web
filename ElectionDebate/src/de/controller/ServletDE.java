@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import de.controller.candidato.RegisterCandidato;
 import de.controller.debate.DeleteDebate;
 import de.controller.debate.EditDebate;
 import de.controller.debate.RegisterDebate;
@@ -35,6 +36,8 @@ public class ServletDE extends HttpServlet {
 		this.commands.put("RegisterDebate", new RegisterDebate());
 		this.commands.put("DeleteDebate", new DeleteDebate());
 		this.commands.put("EditDebate", new EditDebate());
+
+		this.commands.put("RegisterCandidato", new RegisterCandidato());
 
 	}
 

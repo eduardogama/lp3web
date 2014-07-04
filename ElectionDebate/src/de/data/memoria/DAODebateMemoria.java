@@ -20,9 +20,9 @@ public class DAODebateMemoria implements IDAODebate {
 		// Debate eleitoral 1
 		Debate debate = new Debate("Debate eleitoral 1");
 
-		Candidato candidato = new Candidato("Eduardo Aranha", debate);
-		candidato = new Candidato("Roberta Coelho", debate);
-		candidato = new Candidato("Raoni Kulesza", debate);
+		Candidato candidato = new Candidato("Aecio Neves","","", debate);
+		candidato = new Candidato("Eduardo Campos","","", debate);
+		candidato = new Candidato("Dilma Roussef","","", debate);
 
 		this.debates.put(debate.getNome(), debate);
 
@@ -51,7 +51,6 @@ public class DAODebateMemoria implements IDAODebate {
 				listaCandidatos.put(cdto.getNome(),cdto);
 			}
 		}
-	
 		return listaCandidatos;
 	}
 

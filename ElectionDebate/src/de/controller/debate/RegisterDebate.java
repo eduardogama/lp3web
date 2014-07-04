@@ -29,10 +29,7 @@ public class RegisterDebate extends AbstractCommand {
 
 			de.insertDebate(dbte);
 			
-			HashMap<String,Debate> debates = de.listarDebates();
-			request.setAttribute("debates", debates.values());
-			
-			RequestDispatcher view = request.getRequestDispatcher("/ListarDebates.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("/index.jsp");
 			view.forward(request, response);
 			
 			System.out.println("ShowDebates");

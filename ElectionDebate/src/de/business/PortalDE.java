@@ -35,6 +35,10 @@ public class PortalDE {
 	public void insertDebate(Debate debate) {
 		this.cadDebates.inserirDebate(debate);
 	}
+	
+	public void removeDebate(String debate){
+		this.cadDebates.listarDebates().remove(debate);	
+	}
 
 	public Debate getDebateporNome(String nome) {
 

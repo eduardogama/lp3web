@@ -27,7 +27,7 @@
 				<label for="data" >Data:</label>
 				<input name="data" id="data" value="<c:out value="${debate.data}" />" placeholder="data" type="text"/>
 				<br />
-				<input type="hidden" name="comando" value="RegisterDebates" /> 
+				<input type="hidden" name="comando" value="EditDebate" /> 
 				<input type="hidden" name="nome" value="${debate.nome} }" /> 
 				<input type="button"  value="Cadastrar debate" class="rc-button rc-button-submit" />
 			</form>

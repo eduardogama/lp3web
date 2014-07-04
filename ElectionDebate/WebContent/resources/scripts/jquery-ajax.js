@@ -1,17 +1,18 @@
 $(function() {	
-//	ShowDebates();
-	$("input[name='debate-view']").click(DebateView);
 	$("input[name='debate-delete']").click(DebateDelete);
-	
-//	DebateView();
+	$("input[name='debate-edit']").click(DebateEdit);
 });
 
-
-function loadDebate(){
-	$.getJSON("ServletDE", {comando : "ShowDebates"})
-		.done( function () {
-			console.log("success");
-		});
+function DebateEdit(){
+	var nome = $("#nome").val();
+	var descricao = $("#descricao").val();
+	var data = $("#data").val();
+	var title = $(this).attr('title');
+	
+	
+	alert(nome + " " + descricao + " " + data);
+	var data_send = "comando=EditDebate&nome="+nome+"&descricao="+descricao+"&data="+data+"&title="+title;
+	$.post( "ServletDE", data_send, "json");
 }
 
 function DebateDelete(){
@@ -24,38 +25,45 @@ function DebateDelete(){
 	});
 }
 
-function DebateView(){
-	var debate = $(this).attr('title');
-	
-	$.ajax({
-		type: "GET",
-		url : "ServletDE",
-		data : "comando=ShowDebates&nome="+debate,
-		dataType : "json",
-		success: function( data, textStatus, jqXHR) {
-			
-			console.log(data.nome);
-//			if(response.responseText){
-//				console.log("asdad");
-//				
-//			}
-		}
-	});
-	
-	console.log(debate);
-}
+//function DebateView(){
+//	var debate = $(this).attr('title');
+//	
+//	$.ajax({
+//		type: "GET",
+//		url : "ServletDE",
+//		data : "comando=ShowDebates&nome="+debate,
+//		dataType : "json",
+//		success: function( data, textStatus, jqXHR) {
+//			
+//			console.log(data.nome);
+////			if(response.responseText){
+////				console.log("asdad");
+////				
+////			}
+//		}
+//	});
+//	
+//	console.log(debate);
+//}
 
 
-function ShowDebates(){
-	
-//	$("#lista-debates").load("ServletDAR?comando=ShowDebates");
-	$.ajax({
-		url : "ServletDAR",
-		data : "comando=ShowDebates",
-		dataType : "json",
-		success : showDebates
-	});
-}
+//function ShowDebates(){
+//	
+////	$("#lista-debates").load("ServletDAR?comando=ShowDebates");
+//	$.ajax({
+//		url : "ServletDAR",
+//		data : "comando=ShowDebates",
+//		dataType : "json",
+//		success : showDebates
+//	});
+//}
+
+//function loadDebate(){
+//	$.getJSON("ServletDE", {comando : "ShowDebates"})
+//		.done( function () {
+//			console.log("success");
+//		});
+//}
 
 function showDebates(debates){
 	

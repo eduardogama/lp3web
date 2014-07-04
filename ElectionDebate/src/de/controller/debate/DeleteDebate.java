@@ -19,8 +19,7 @@ public class DeleteDebate extends AbstractCommand {
 			PortalDE de = PortalDE.getInstance();
 			
 			String dbte = request.getParameter("nome");
-			
-			de.listarDebates().remove(dbte);
+			de.removeDebate(dbte);
 			
 			RequestDispatcher view = request.getRequestDispatcher("/ListarDebates.jsp");
 			view.forward(request, response);
