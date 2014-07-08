@@ -1,6 +1,8 @@
 $(function() {	
 	$("input[name='debate-delete']").click(DebateDelete);
 	$("input[name='debate-edit']").click(DebateEdit);
+	$("input[name='candidato-delete']").click(CandidatoDelete);
+
 });
 
 function DebateEdit(){
@@ -19,6 +21,19 @@ function DebateDelete(){
 	var debate = $(this).attr('title');
 	
 	$.get("ServletDE",{nome : debate, comando : "DeleteDebate"});
+	
+	$(this).parent('li').hide('slow', function() {
+		$(this).remove();
+	});
+}
+
+function CandidatoDelete(){
+	var cddto= $(this).attr('title');
+	var dbte = $("title").html();
+	
+	alert(dbte + " " + cddto);
+	
+	$.get("ServletDE",{nome : cddto, comando : "DeleteCandidato", title : dbte});
 	
 	$(this).parent('li').hide('slow', function() {
 		$(this).remove();

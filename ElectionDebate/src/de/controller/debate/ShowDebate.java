@@ -27,6 +27,7 @@ public class ShowDebate  extends AbstractCommand {
 			Debate debate = de.getDebateporNome(nome);
 			
 			request.setAttribute("debate", debate);
+			request.setAttribute("candidatos", debate.getCandidatos());
 			
 			RequestDispatcher view = request.getRequestDispatcher("/debate-eleitoral.jsp");
 			view.forward(request, response);

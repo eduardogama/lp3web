@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Debate Eleitoral</title>
+<title>${debate.nome}</title>
 
 	<link rel="stylesheet" type="text/css" href="resources/style/home-style.css" />
 <script src="./resources/scripts/jquery.js" type="text/javascript"></script>
@@ -24,15 +24,21 @@
 				<p>Data : ${debate.data}<p>
 				
 			</div>
+			<c:if test="${empty candidatos}">
+				Lista de Candidatos vazia
+			</c:if>
 			
-			<ul>
-				<c:forEach var="candidato" items="candidatos">
-				<li>
-					${candidato.nome }
-				</li>
-				</c:forEach>
-			</ul>
-			
+			<c:if test="${not empty candidatos}">
+				<ul>
+					<c:forEach var="candidato" items="${candidatos}">
+					<li>
+						<h1 style="font-size: 17px;">${candidato.nome}</h1>
+						
+						<input type="button" title="${candidato.nome}" name="candidato-delete" value="Delete" class="rc-button debate-delete" />
+					</li>
+					</c:forEach>
+				</ul>
+			</c:if>			
 			<form action="ServletDE" method="post" name="formCandidatos">
 				<fieldset>
 					<label for="nome">Nome:</label>

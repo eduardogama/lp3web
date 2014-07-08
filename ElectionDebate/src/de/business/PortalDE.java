@@ -39,7 +39,11 @@ public class PortalDE {
 	public void removeDebate(String debate){
 		this.cadDebates.listarDebates().remove(debate);	
 	}
-
+	
+	public void removeCandidato(String dbte, String cddto){
+		this.cadDebates.removeCandidato(dbte, cddto);
+	}
+	
 	public Debate getDebateporNome(String nome) {
 
 		for (Debate dbte : listarDebates().values()) {
