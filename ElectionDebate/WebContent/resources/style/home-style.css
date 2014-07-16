@@ -34,10 +34,15 @@ html, body {
 	border-radius: 3px;
 }
 
-#header {
+#header , #footer {
 	margin-bottom:30px;
 	width:100%;
 	text-align:center;
 	border: 1px solid #333;
 	background: #111;
+}
+
+.register-button{
+	float: left;	
+	margin:15px;
 }
