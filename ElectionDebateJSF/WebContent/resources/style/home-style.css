@@ -1,0 +1,58 @@
+html, body {
+	font-family: Arial, sans-serif;
+	font-size: 13px;
+	color: #404040;
+	direction: ltr;
+}
+
+.signin-card {
+	width: 274px;
+	padding: 40px 40px;
+}
+
+.card {
+	background-color: #f7f7f7;
+	padding: 20px 25px 30px;
+	margin: 0 auto 25px;
+	width: 1050px;
+	display: table;
+}
+
+.rc-button-submit, .rc-button-submit:visited {
+	margin-top: 10px;
+	border: 1px solid #3079ed;
+	color: #fff;
+	text-shadow: 0 1px rgba(0,0,0,0.1);
+	background-color: #4d90fe;
+}
+
+.rc-button, .rc-button:visited {
+	font-size: 14px;
+	font-weight: 700;
+	height: 36px;
+	padding: 0 8px;
+	line-height: 36px;
+	border-radius: 3px;
+}
+
+#header , #footer {
+	margin-bottom:30px;
+	width:100%;
+	text-align:center;
+	border: 1px solid #333;
+	background: #111;
+}
+
+.register-button{
+	float: left;	
+	margin:15px;
+}
+
+.content-debate{
+	width: 180px;
+	height: 100px;
+	float:left;
+	margin:10px;
+	padding:5px;
+	background: #F1F0F5;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head>
+<title>Debate Eleitoral</title>
+	<link rel="stylesheet" type="text/css" href="resources/style/main-style.css" />
+</h:head> 
+
+<h:body class="ui-mobile-viewport">
+<f:view>
+	<div id="content-page" class="">
+
+		<div id="header">
+			<h1>Cadastro Debate</h1>
+		</div>
+
+		<div class="card signin-card">
+			
+			<h:form id="formDebates" prependId="false">
+				<label for="nome">Nome:</label>
+				<h:inputText id="nome" value="#{debateManagedBean.dbte.nome}" />			
+				<br />
+				<label for="descricao" >Descricao:</label>
+				<h:inputText id="descricao" value="#{debateManagedBean.dbte.descricao}" />
+				<br />
+				<label for="data" >Data:</label>
+				<h:inputText id="data" value="#{debateManagedBean.dbte.data}" />
+				<br />
+				<h:commandButton value="Cadastrar debate" action="#{debateManagedBean.CadastrarDebate()}" styleClass="rc-button rc-button-submit" />
+			</h:form>
+
+		</div>
+
+	</div>
+
+</f:view>
+</h:body>
+</html>
