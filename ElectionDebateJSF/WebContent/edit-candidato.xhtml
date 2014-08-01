@@ -13,7 +13,7 @@
 <f:view>
 
 	<div style="position: fixed;bottom:20px; left:20px;">
-		<h:button outcome="index" image="resources/images/back.png" />
+		<h:button outcome="view-debate" image="resources/images/back.png" />
 	</div>
 	<div id="content-page" class="">
 
@@ -23,29 +23,27 @@
 
 		<div class="card signin-card">
 			<h:form id="formDebates" prependId="false">
-				<f:event listener="#{debateManagedBean.validateDebate}" type="postValidate" />
 				
 				<label for="nome">Nome:  </label>
 				<h:message for="nome" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="nome" value="#{debateManagedBean.dbte.nome}" required="true"
+				<h:inputText id="nome" value="#{debateManagedBean.edit_cdto.nome}" required="true"
 							requiredMessage="Campo vazio" />
 							
 				<br />
 				
-				<label for="data" >Data:  </label>
-				<h:message for="data" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="data" value="#{debateManagedBean.dbte.data}" required="true"
+				<label for="idade" >Idade:  </label>
+				<h:message for="idade" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
+				<h:inputText id="idade" value="#{debateManagedBean.edit_cdto.idade}" required="true"
 							requiredMessage="Campo vazio" />
 				
 				<br />
-				<label for="descricao" >Descricao: </label>
+				<label for="partido-edit">Partido:</label>
 				<h:message for="descricao" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right"  />
-				<h:inputTextarea id="descricao" value="#{debateManagedBean.dbte.descricao}" required="true"
-							requiredMessage="Campo vazio"  />
+				<h:inputText id="partido-edit" value="#{debateManagedBean.edit_cdto.partido}" />			
 				
 				<br />
 				
-				<h:commandButton value="Cadastrar debate" action="#{debateManagedBean.CadastrarDebate()}" styleClass="rc-button rc-button-submit" />
+				<h:commandButton value="Cadastrar debate" action="#{debateManagedBean.EditarCandidato()}" styleClass="rc-button rc-button-submit" />
 			</h:form>
 
 		</div>

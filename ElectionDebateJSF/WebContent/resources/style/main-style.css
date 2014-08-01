@@ -1,13 +1,24 @@
 html, body {
 	font-family: Arial, sans-serif;
 	font-size: 13px;
-	color: #404040;
+	color: #5B5656;
 	direction: ltr;
 }
 
 .signin-card {
 	width: 274px;
 	padding: 40px 40px;
+}
+
+a:link, a:visited, a:active {
+	text-decoration:none;
+	color: #5B5656;
+}
+
+#descricao{
+	margin: 2px; 
+	width: 294px; 
+	height: 151px;
 }
 
 .card {

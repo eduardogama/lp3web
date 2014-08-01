@@ -5,46 +5,118 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="resources/style/home-style.css" />
+	<link rel="stylesheet" type="text/css"
+		href="resources/style/home-style.css" />
 	<script src="./resources/scripts/jquery.js" type="text/javascript"></script>
 	<script src="./resources/scripts/jquery-ajax.js" type="text/javascript"></script>
+	<script src="./resources/scripts/jquery-box.js" type="text/javascript"></script>
 </h:head>
 <h:body class="ui-mobile-viewport">
 	<f:view>
-		
-	<div data-role="page" id="page-1">
 
-		<div data-role="header" id="header">
-			<h:button outcome="cadastro-debate" value="Cadastrar debate" 
-						styleClass="register-button rc-button rc-button-submit" />
-			<h1>Debates Eleitorais</h1>
-		</div>
-		
-		<div data-role="content">
-		
-			<div class="card signin-card">				
-				<ui:repeat var="debate" value="#{debateManagedBean.listarDebates()}">
+		<div id="content-page">
+
+			<div id="header">
+				<h:button outcome="cadastro-debate" value="Cadastrar debate"
+					styleClass="register-button rc-button rc-button-submit" />
+				<h1>Debates Eleitorais</h1>
+			</div>
+
+			<div id="content">
+				<div class="card signin-card">
+					<h:form prependId="false" id="form-list-debate">
+						<ui:repeat var="debate"
+							value="#{debateManagedBean.listarDebates()}">
+
+							<div class="content-debate">
+								<h3>
+									<h:outputLabel value="#{debate.nome}" />
+								</h3>
+
+								<h:commandButton id="view-debate" action="view-debate"
+									value="Entrar" styleClass="rc-button debate-delete">
+									<f:setPropertyActionListener
+										target="#{debateManagedBean.selected_dbte}" value="#{debate}" />
+								</h:commandButton>
+								<h:commandButton id="delete-debate"
+									action="#{debateManagedBean.DeleteDebate(debate)}"
+									value="delete" styleClass="rc-button debate-delete" />
+								<h:commandButton id="edit-debate" action="edit-debate"
+									value="Editar" styleClass="rc-button debate-delete">
+									<f:setPropertyActionListener
+										target="#{debateManagedBean.selected_dbte}" value="#{debate}" />
+								</h:commandButton>
+							</div>
+						</ui:repeat>
+					</h:form>
+				</div>
+				<h:commandButton id="rules" value="Regras" 
+					style="width:100px !important;left:110px"
+					styleClass="register-button rc-button rc-button-submit" />
 					
-					<div class="content-debate">					
-						<h3><h:outputLabel value="#{debate.nome}" /></h3>
-						<h:button outcome="cadastro-debate" value="View" styleClass="rc-button debate-delete" />
-						<h:button outcome="cadastro-debate" value="Delete" styleClass="rc-button debate-delete" />
-						<h:button outcome="cadastro-debate" value="Edit" styleClass="rc-button debate-delete" />
-					</div>
-				</ui:repeat>
+				<div class="card signin-card " style=";width: 900px !important;">
+					
+					<span class="rules-display"
+					 style="display:none;font-family: Arial, sans-serif;font-size: 15px;">
+					Os debates eleitorais, transmitidos por emissoras de rádio ou
+					televisão, serão realizados de acordo com as regras a serem
+					estabelecidas de comum acordo entre os participantes e a emissora
+					responsável pela sua realização. Estes eventos deverão ser
+					comunicados previamente à Justiça Eleitoral para que ela possa
+					fazer o acompanhamento.<br /> <br />Terão direito a decidir quanto às
+					regras para realização dos debates, os candidatos filiados a
+					partido político com representação na Câmara dos Deputados e que
+					tenha requerido o registro de candidatura perante a Justiça
+					Eleitoral.<br /><br /> A forma de realização dos debates será considerada
+					válida se obtiver a concordância de ao menos 2/3 dos candidatos da
+					majoritária e 2/3 dos partidos ou coligação, no caso de debate da
+					chapa proporcional (Vereadores e Deputados). Acaso não seja
+					possível estabelecer um acordo, os debates transmitidos por
+					emissora de rádio ou televisão deverão obedecer às seguintes regras
+					(Lei nº 9.504/97, art. 46, I, a e b, II e III):<br /><br /> I – nas eleições
+					majoritárias, a apresentação dos debates poderá ser feita: <br /><br />a) em
+					conjunto, estando presentes todos os candidatos a um mesmo cargo
+					eletivo; <br /><br />b) em grupos, estando presentes, no mínimo, 3 candidatos.
+					<br /><br />II – nas eleições proporcionais, os debates deverão ser organizados
+					de modo que assegurem a presença de número equivalente de
+					candidatos de todos os partidos políticos e coligações a um mesmo
+					cargo eletivo, podendo desdobrar-se em mais de 1 dia; <br />III – os
+					debates deverão ser parte de programação previamente estabelecida e
+					divulgada pela emissora, fazendo-se mediante sorteio a escolha do
+					dia e da ordem de fala de cada candidato. Na hipótese deste artigo,
+					é assegurada a participação de candidatos dos partidos políticos
+					com representação na Câmara dos Deputados, facultada a dos demais.
+					Em qualquer hipótese, deverá ser observado o seguinte: <br />I – é
+					admitida a realização de debate sem a presença de candidato de
+					algum partido político ou de coligação, desde que o veículo de
+					comunicação responsável comprove tê-lo convidado com a antecedência
+					mínima de 72 horas da realização do debate (Lei nº 9.504/97, art.
+					46, § 1º); <br /><br />II – é vedada a presença de um mesmo candidato a eleição
+					proporcional em mais de um debate da mesma emissora (Lei nº
+					9.504/97, art. 46, § 2º); <br /><br />III – o horário destinado à realização de
+					debate poderá ser destinado à entrevista de candidato, caso apenas
+					este tenha comparecido ao evento (Acórdão nº 19.433, de 25.6.2002);
+					<br /><br />IV – no primeiro turno, o debate poderá se estender até as 7 horas
+					do dia 3 de outubro de 2014 e, no caso de segundo turno, não poderá
+					ultrapassar o horário de meia-noite do dia 24 de outubro de 2014.<br /> <br />O
+					descumprimento do disposto nesta Seção sujeita a empresa infratora
+					à suspensão, por 24 horas, da sua programação, com a transmissão, a
+					cada 15 minutos, da informação de que se encontra fora do ar por
+					desobediência à legislação eleitoral; em cada reiteração de
+					conduta, o período de suspensão será duplicado (Lei nº 9.504/97,
+					art. 46, § 3º, e art. 56, § 1º e § 2º).
+					</span>
+				</div>
 			</div>
 	
+	<!-- 			<div data-role="footer" id="footer"> -->
+	<!-- 							<form action="ServletDAR" method="post" name="formDebates"> -->
+	<!-- 								<a href="CadastrarDebate.xhtml" > -->
+	<!-- 									<input type="button"  value="Cadastrar debate" class="rc-button rc-button-submit" /> -->
+	<!-- 							</form> -->
+	<!-- 			</div> -->
+
 		</div>
-		
-		<div data-role="footer" id="footer">
-<!-- 			<form action="ServletDAR" method="post" name="formDebates"> -->
-<!-- 				<a href="CadastrarDebate.xhtml" > -->
-<!-- 					<input type="button"  value="Cadastrar debate" class="rc-button rc-button-submit" /> -->
-<!-- 			</form> -->
-		</div>
-		
-		
-	</div>
 
 	</f:view>
 </h:body>

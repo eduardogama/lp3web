@@ -14,6 +14,10 @@ public class Candidato {
 		dbte.addCandidato(this);		
 	}
 
+	public Candidato() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getNome() {
 		return nome;
 	}
