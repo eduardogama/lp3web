@@ -17,20 +17,20 @@ import de.data.memoria.DAODebateMemoria;
 import entidades.Candidato;
 import entidades.Debate;
 import entidades.Pergunta;
+import entidades.Usuario;
 
 @ManagedBean
 @SessionScoped
 public class DebateManagedBean {
 
 	private IDAODebate daoDebate;
-	private List<Debate> debates = new ArrayList<Debate>();
+	private Debate edit_dbte;
 	private Debate dbte = new Debate();
 	private Debate selected_dbte = new Debate();
-	private Debate edit_dbte;
+	private List<Debate> debates = new ArrayList<Debate>();
 	private Candidato new_cdto = new Candidato();
 	private Candidato edit_cdto = new Candidato();
-	private Pergunta new_pergunta = new Pergunta();
-
+	private Pergunta new_pergunta = new Pergunta();	
 	public DebateManagedBean() {
 		this.daoDebate = new DAODebateMemoria();
 	}
@@ -171,7 +171,7 @@ public class DebateManagedBean {
 
 		}
 	}
-
+	
 	public Candidato getEdit_cdto() {
 		return edit_cdto;
 	}

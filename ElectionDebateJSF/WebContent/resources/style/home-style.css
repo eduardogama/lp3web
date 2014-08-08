@@ -48,13 +48,14 @@ html, body {
 .rc-button, .rc-button:visited {
 	font-size: 14px;
 	font-weight: 700;
-	height: 30px;
+	height: 36px;
 	padding: 0 8px;
-	line-height: 30px;
+	line-height: 36px;
 	border-radius: 3px;
 }
 
 .rc-button-add{
+	float:left;
 	width: 110px;
 	margin-top: 10px;
 	height: 124px;

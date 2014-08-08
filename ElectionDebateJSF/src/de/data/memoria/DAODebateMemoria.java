@@ -6,15 +6,23 @@ import java.util.List;
 import de.data.IDAODebate;
 import entidades.Candidato;
 import entidades.Debate;
+import entidades.Usuario;
 
 public class DAODebateMemoria implements IDAODebate {
 
+	
+	private List<Usuario> usuarios;
 	private List<Debate> debates;
 
 	public DAODebateMemoria() {
 
+		this.usuarios = new ArrayList<Usuario>();
 		this.debates = new ArrayList<Debate>();
 
+		Usuario user = new Usuario("admin", "admin");
+		
+		this.usuarios.add(user);
+		
 		// Debate eleitoral 1
 		Debate debate = new Debate("Debate eleitoral 1");
 		debate.setDescricao("O primeiro debate dos candidatos ao governo de Santa Catarina das eleições deste ano, "

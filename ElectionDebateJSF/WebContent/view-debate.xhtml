@@ -24,26 +24,38 @@
 		<div class="card signin-card">
 			<div id="content-header">
 				<h:form prependId="false" id="form-list-candidato">
-				
-				<ui:repeat var="candidato" value="#{debateManagedBean.selected_dbte.candidatos}">
-					<div class="content-debate">					
-						<h3><h:outputLabel value="#{candidato.nome}" /></h3>
-						<h3><h:outputLabel value="(#{candidato.partido})" /></h3>
-						<h:commandButton id="delete-debate" action="#{debateManagedBean.DeleteCandidato(candidato)}" value="delete" styleClass="rc-button debate-delete" />
-						<h:commandButton id="edit-debate" action="edit-candidato.xhtml" value="Editar" styleClass="rc-button debate-delete">
-							<f:setPropertyActionListener target="#{debateManagedBean.edit_cdto}" value="#{candidato}" />
-						</h:commandButton>
-						
-					</div>
-				</ui:repeat>
+					<ui:repeat var="candidato" value="#{debateManagedBean.selected_dbte.candidatos}">
+						<div class="content-debate">					
+							<h3><h:outputLabel value="#{candidato.nome}" /></h3>
+							<h3><h:outputLabel value="(#{candidato.partido})" /></h3>
+							<h:commandButton id="delete-debate" action="#{debateManagedBean.DeleteCandidato(candidato)}" 
+											rendered="#{usuarioManagedBean.user != null}" value="delete" styleClass="rc-button debate-delete" />
+							<h:commandButton id="edit-debate" action="edit-candidato.xhtml" value="Editar" 
+											rendered="#{usuarioManagedBean.user != null}" styleClass="rc-button debate-delete">
+								<f:setPropertyActionListener target="#{debateManagedBean.edit_cdto}" value="#{candidato}" />
+							</h:commandButton>
+							
+						</div>
+					</ui:repeat>
 				</h:form>
-				<a href="#cadastro-candidato-box" class="login-window">
-				<div >					
-					<h:commandButton image="resources/images/add.png" class="rc-button-add" />
-				</div>
-				</a>
-			</div>
-			
+				<h:panelGroup layout="block"  rendered="#{usuarioManagedBean.user != null}" >					
+					<a href="#cadastro-candidato-box" class="login-window">
+						<h:commandButton image="resources/images/add.png" class="rc-button-add" />
+					</a>
+				</h:panelGroup>
+			</div>			
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
 			<br />
 			<div class="card-content" style="" >
 				<h3><h:outputLabel value="Data: #{debateManagedBean.selected_dbte.data}" style="float:right;margin:5px" /></h3>
@@ -60,6 +72,7 @@
 								<div>
 								<h3><h:outputLabel value="#{pergunta.prgta}" /></h3>
 								<h:commandButton action="#{debateManagedBean.RemoverPergunta(pergunta)}" 
+												rendered="#{usuarioManagedBean.user != null}"
 												styleClass="rc-button rc-button-submit" 
 												style="top:-50px;right:10px;position:relative;float:right;width:100px !important;" value="Remover" />
 								</div>
@@ -80,10 +93,11 @@
 					</ui:repeat>
 				</div>
 			</fieldset>
-			
-			<a href="#cadastro-pergunta-box" class="cad-pergunta-window">
-				<input type="button"  value="Cadastrar pergunta" class="rc-button rc-button-submit" />
-			</a>
+			<h:panelGroup layout="block" rendered="#{usuarioManagedBean.user != null}">			
+				<a href="#cadastro-pergunta-box" class="cad-pergunta-window">
+					<input type="button"  value="Cadastrar pergunta" class="rc-button rc-button-submit" />
+				</a>
+			</h:panelGroup>
 
 		</div>
 	</div>
