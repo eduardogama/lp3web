@@ -4,6 +4,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import de.data.IDAOUsuario;
+import de.data.bd.DAOUsuarioBD;
 import de.data.memoria.DAOUsuarioMemoria;
 import entidades.Usuario;
 
@@ -18,7 +19,7 @@ public class UsuarioManagedBean {
 
 	public UsuarioManagedBean() {
 		// TODO Auto-generated constructor stub
-		this.daoUsuario = new DAOUsuarioMemoria();
+		this.daoUsuario = new DAOUsuarioBD();
 	}
 
 	public String getLogin() {

@@ -4,12 +4,22 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+@Entity
 public class Debate {
+	@Id
+	@GeneratedValue
+	private long idDebate;
 
 	private String nome;
 	private String descricao;
 	private String data;
+	@OneToMany
 	private List<Candidato> candidatos;
+	@OneToMany
 	private List<Pergunta> perguntas;
 
 	public Debate(String nome) {
@@ -25,6 +35,14 @@ public class Debate {
 
 	public void addCandidato(Candidato cddto) {
 		this.candidatos.add(cddto);
+	}
+
+	public long getIdDebate() {
+		return idDebate;
+	}
+
+	public void setIdDebate(long idDebate) {
+		this.idDebate = idDebate;
 	}
 
 	public String getNome() {

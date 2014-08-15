@@ -10,5 +10,6 @@ public interface IDAODebate {
     public List<Debate> listarDebates();
 	public List<Candidato> listarCandidatos();
 	public void inserirDebate(Debate debate);
+	public void atualizaDebate(Debate debate);
 	public void removeDebate(Debate debate);
 }

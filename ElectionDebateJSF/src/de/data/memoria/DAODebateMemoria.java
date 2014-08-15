@@ -78,4 +78,10 @@ public class DAODebateMemoria implements IDAODebate {
 		this.debates.remove(debate);
 	}
 
+	@Override
+	public void atualizaDebate(Debate debate) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
