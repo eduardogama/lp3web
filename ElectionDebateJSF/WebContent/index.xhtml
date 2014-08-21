@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<link rel="stylesheet" type="text/css"
@@ -18,14 +19,14 @@
 		<div id="content-page">
 
 			<div id="header">
-				<h:button value="Entrar" id="login-user" onclick="return false;"
+				<p:button value="Entrar" id="login-user" onclick="return false;"
 					rendered="#{usuarioManagedBean.user == null}" 
 					styleClass="register-button rc-button rc-button-submit" />
-				<h:button outcome="cadastro-debate" value="Cadastrar debate"
+				<p:button outcome="cadastro-debate" value="Cadastrar debate"
 					rendered="#{usuarioManagedBean.user != null}" 
 					styleClass="register-button rc-button rc-button-submit login-box" />
 				<h:form>
-					<h:commandButton  action="#{usuarioManagedBean.LogOut()}" value="Sair"
+					<p:commandButton  action="#{usuarioManagedBean.LogOut()}" value="Sair"
 						rendered="#{usuarioManagedBean.user != null}" 
 						styleClass="register-button rc-button rc-button-submit login-box" />
 				</h:form>
@@ -43,25 +44,25 @@
 									<h:outputLabel value="#{debate.nome}" />
 								</h3>
 
-								<h:commandButton id="view-debate" action="view-debate"
+								<p:commandButton id="view-debate" action="view-debate" style="margin:2px;"
 									value="Entrar" styleClass="rc-button debate-delete">
 									<f:setPropertyActionListener
 										target="#{debateManagedBean.selected_dbte}" value="#{debate}" />
-								</h:commandButton>
-								<h:commandButton id="delete-debate" rendered="#{usuarioManagedBean.user != null}"
-									action="#{debateManagedBean.DeleteDebate(debate)}"
+								</p:commandButton>
+								<p:commandButton id="delete-debate" rendered="#{usuarioManagedBean.user != null}"
+									action="#{debateManagedBean.DeleteDebate(debate)}" style="margin:2px;"
 									value="delete" styleClass="rc-button debate-delete" />
-								<h:commandButton id="edit-debate" action="edit-debate"
-									rendered="#{usuarioManagedBean.user != null}"
+								<p:commandButton id="edit-debate" action="edit-debate"
+									rendered="#{usuarioManagedBean.user != null}" style="margin:2px;"
 									value="Editar" styleClass="rc-button debate-delete">
 									<f:setPropertyActionListener
 										target="#{debateManagedBean.selected_dbte}" value="#{debate}" />
-								</h:commandButton>
+								</p:commandButton>
 							</div>
 						</ui:repeat>
 					</h:form>
 				</div>
-				<h:commandButton id="rules" value="Regras" 
+				<p:commandButton id="rules" value="Regras" 
 					style="width:100px !important;left:110px"
 					styleClass="register-button rc-button rc-button-submit" />
 					
@@ -127,13 +128,13 @@
 		  <h:form prependId="false" id="form-login">
 		        <label for="login">Login:</label>
 				<br />
-				<h:inputText id="login" value="#{usuarioManagedBean.login}" />
+				<p:inputText id="login" value="#{usuarioManagedBean.login}" />
 				<br />
 		        <label for="pwd">Senha:</label>
 				<br />
-				<h:inputText id="pwd" value="#{usuarioManagedBean.pwd}" />
+				<p:inputText id="pwd" value="#{usuarioManagedBean.pwd}" />
 				<br />
-		        <h:commandButton action="#{usuarioManagedBean.LogIn()}" 
+		        <p:commandButton  action="#{usuarioManagedBean.LogIn()}" 
 		        value="Entrar" styleClass="rc-button rc-button-submit" />      
 		  </h:form>
       </fieldset>

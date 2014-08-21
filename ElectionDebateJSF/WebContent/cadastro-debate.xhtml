@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 <title>Debate Eleitoral</title>
@@ -13,7 +14,9 @@
 <f:view>
 
 	<div style="position: fixed;bottom:20px; left:20px;">
-		<h:button outcome="index" image="resources/images/back.png" />
+		<p:commandLink action="index?faces-redirect=true" >
+			<p:graphicImage value="resources/images/back.png"  />
+		</p:commandLink>
 	</div>
 	<div id="content-page" class="">
 
@@ -26,26 +29,25 @@
 				<f:event listener="#{debateManagedBean.validateDebate}" type="postValidate" />
 				
 				<label for="nome">Nome:  </label>
-				<h:message for="nome" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="nome" value="#{debateManagedBean.dbte.nome}" required="true"
+				<p:message for="nome" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
+				<p:inputText id="nome" value="#{debateManagedBean.dbte.nome}" required="true"
 							requiredMessage="Campo vazio" />
 							
 				<br />
 				
 				<label for="data" >Data:  </label>
-				<h:message for="data" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="data" value="#{debateManagedBean.dbte.data}" required="true"
+				<p:message for="data" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
+				<p:inputText id="data" value="#{debateManagedBean.dbte.data}" required="true"
 							requiredMessage="Campo vazio" />
 				
 				<br />
 				<label for="descricao" >Descricao: </label>
-				<h:message for="descricao" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right"  />
-				<h:inputTextarea id="descricao" value="#{debateManagedBean.dbte.descricao}" required="true"
+				<p:message for="descricao" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right"  />
+				<p:inputTextarea id="descricao" value="#{debateManagedBean.dbte.descricao}" required="true"
 							requiredMessage="Campo vazio"  />
-				
 				<br />
 				
-				<h:commandButton value="Cadastrar debate" action="#{debateManagedBean.CadastrarDebate()}" styleClass="rc-button rc-button-submit" />
+				<p:commandButton value="Cadastrar debate" action="#{debateManagedBean.CadastrarDebate()}" styleClass="rc-button rc-button-submit" />
 			</h:form>
 
 		</div>

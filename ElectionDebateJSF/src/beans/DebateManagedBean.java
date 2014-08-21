@@ -85,18 +85,18 @@ public class DebateManagedBean {
 	}
 	
 	public String EditarDebate(Debate dbte){
-		return "index";
+		return "index?faces-redirect=true";
 	}
 
 	public String DeleteDebate(Debate dbte) {
 		this.daoDebate.removeDebate(dbte);
-		return "index";
+		return "index?faces-redirect=true";
 	}
 	public String DeleteCandidato(Candidato cdto){
 		this.selected_dbte.getCandidatos().remove(cdto);
 		daoCandidato.atualizaCandidato(cdto);
 		daoDebate.atualizaDebate(selected_dbte);
-		return "view-debate";
+		return "view-debate?faces-redirect=true";
 	}
 
 	public String RegistrarCandidato() {
@@ -105,7 +105,7 @@ public class DebateManagedBean {
 		selected_dbte.addCandidato(candidatoRegistrado);
 		daoDebate.atualizaDebate(selected_dbte);
 		this.new_cdto = new Candidato();
-		return "view-debate";
+		return "view-debate?faces-redirect=true";
 	}
 	
 	public String RemoverPergunta(Pergunta p){
@@ -144,7 +144,7 @@ public class DebateManagedBean {
 	public String VotarCandidato(String key,Pergunta pgta){
 		pgta.getCandidatos().put(key, pgta.getCandidatos().get(key) + 1);
 		daoPergunta.atualizaPergunta(pgta);
-		return "view-debate";
+		return "view-debate?faces-redirect=true";
 	}
 	
 	public String CadastrarPergunta(){
@@ -159,7 +159,7 @@ public class DebateManagedBean {
 		daoDebate.atualizaDebate(selected_dbte);
 		this.new_pergunta = new Pergunta();
 		
-		return "view-debate";
+		return "view-debate?faces-redirect=true";
 	}
 
 	public void validateDebate(ComponentSystemEvent event) {

@@ -48,15 +48,20 @@ public class UsuarioManagedBean {
 
 	public String LogIn() {
 		this.user = daoUsuario.LogIn(login, pwd);
+		
+		
 		if (this.user != null){
+			System.out.println(">>>> " + user.getLogin() +  " " + user.getPwd());
 			this.login = this.pwd = null;
-			return "index";
+			return "index?faces-redirect=true";
+		}else{
+			System.out.println("ENtrou");
+			return null;
 		}
-		return null;
 	}
 	
 	public String LogOut(){
 		this.user = null;
-		return "index";
+		return "index?faces-redirect=true";
 	}
 }

@@ -2,7 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"> 
 
 <h:head>
 	<link rel="stylesheet" type="text/css" href="resources/style/home-style.css" />
@@ -28,19 +29,19 @@
 						<div class="content-debate">					
 							<h3><h:outputLabel value="#{candidato.nome}" /></h3>
 							<h3><h:outputLabel value="(#{candidato.partido})" /></h3>
-							<h:commandButton id="delete-debate" action="#{debateManagedBean.DeleteCandidato(candidato)}" 
+							<p:commandButton id="delete-debate" action="#{debateManagedBean.DeleteCandidato(candidato)}" 
 											rendered="#{usuarioManagedBean.user != null}" value="delete" styleClass="rc-button debate-delete" />
-							<h:commandButton id="edit-debate" action="edit-candidato.xhtml" value="Editar" 
+							<p:commandButton id="edit-debate" action="edit-candidato.xhtml" value="Editar" 
 											rendered="#{usuarioManagedBean.user != null}" styleClass="rc-button debate-delete">
 								<f:setPropertyActionListener target="#{debateManagedBean.edit_cdto}" value="#{candidato}" />
-							</h:commandButton>
+							</p:commandButton>
 							
 						</div>
 					</ui:repeat>
 				</h:form>
 				<h:panelGroup layout="block"  rendered="#{usuarioManagedBean.user != null}" >					
 					<a href="#cadastro-candidato-box" class="login-window">
-						<h:commandButton image="resources/images/add.png" class="rc-button-add" />
+						<p:graphicImage value="resources/images/add.png" class="rc-button-add" />
 					</a>
 				</h:panelGroup>
 			</div>			
@@ -58,9 +59,9 @@
 			<br />
 			<br />
 			<div class="card-content" style="" >
-				<h3><h:outputLabel value="Data: #{debateManagedBean.selected_dbte.data}" style="float:right;margin:5px" /></h3>
+				<h3><p:outputLabel value="Data: #{debateManagedBean.selected_dbte.data}" style="float:right;margin:5px" /></h3>
 				<br />
-				<h3><h:outputLabel value="#{debateManagedBean.selected_dbte.descricao}" /></h3>
+				<h3><p:outputLabel value="#{debateManagedBean.selected_dbte.descricao}" /></h3>
 			</div>
 
 			<fieldset>
@@ -71,7 +72,7 @@
 							<h:form>
 								<div>
 								<h3><h:outputLabel value="#{pergunta.prgta}" /></h3>
-								<h:commandButton action="#{debateManagedBean.RemoverPergunta(pergunta)}" 
+								<p:commandButton action="#{debateManagedBean.RemoverPergunta(pergunta)}" 
 												rendered="#{usuarioManagedBean.user != null}"
 												styleClass="rc-button rc-button-submit" 
 												style="top:-50px;right:10px;position:relative;float:right;width:100px !important;" value="Remover" />
@@ -82,7 +83,7 @@
 										
 										<h:outputLabel value="#{candidato}  " />
 										
-											<h:commandButton value="#{pergunta.candidatos[candidato]}" styleClass="rc-button debate-delete"
+											<p:commandButton value="#{pergunta.candidatos[candidato]}" styleClass="rc-button debate-delete"
 											action="#{debateManagedBean.VotarCandidato(candidato,pergunta)}" />
 									</div>
 								</div>
@@ -95,7 +96,7 @@
 			</fieldset>
 			<h:panelGroup layout="block" rendered="#{usuarioManagedBean.user != null}">			
 				<a href="#cadastro-pergunta-box" class="cad-pergunta-window">
-					<input type="button"  value="Cadastrar pergunta" class="rc-button rc-button-submit" />
+					<p:commandButton value="Cadastrar pergunta" disabled="#{debateManagedBean.selected_dbte.candidatos.size() == 0}" class="rc-button rc-button-submit" />
 				</a>
 			</h:panelGroup>
 
@@ -107,21 +108,21 @@
 	  <fieldset class="textbox">
 		  <h:form prependId="false" id="form-add-candidato">
 		        <label for="nome">Nome:</label>
-				<h:message for="nome" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="nome" value="#{debateManagedBean.new_cdto.nome}" required="true"
+				<p:message for="nome" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
+				<p:inputText id="nome" value="#{debateManagedBean.new_cdto.nome}" required="true"
 							requiredMessage="Campo obrigatorio">
 					<f:validateLength minimum="5" maximum="20" ></f:validateLength>
-				</h:inputText>			
+				</p:inputText>			
 				<br />
 		        <label for="idade">Idade:</label>
-				<h:message for="idade" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="idade" value="#{debateManagedBean.new_cdto.idade}" />			
+				<p:message for="idade" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
+				<p:inputText id="idade" value="#{debateManagedBean.new_cdto.idade}" />			
 				<br />		        
 		        <label for="partido">Partido:</label>
-				<h:message for="partido" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
-				<h:inputText id="partido" value="#{debateManagedBean.new_cdto.partido}" />			
+				<p:message for="partido" style="color: red;font-family: Arial, sans-serif;font-size: 15px;float:right" />
+				<p:inputText id="partido" value="#{debateManagedBean.new_cdto.partido}" />			
 				<br />		        
-		        <h:commandButton action="#{debateManagedBean.RegistrarCandidato()}" 
+		        <p:commandButton action="#{debateManagedBean.RegistrarCandidato()}" 
 		        value="Cadastrar candidato" styleClass="rc-button rc-button-submit" />      
 		  </h:form>
       </fieldset>
@@ -133,9 +134,9 @@
 		  <h:form prependId="false" id="form-cad-candidato">
 		        <label for="pergunta">Pergunta:</label>
 				<br />
-				<h:inputTextarea id="pergunta" value="#{debateManagedBean.new_pergunta.prgta}" />
+				<p:inputTextarea id="pergunta" value="#{debateManagedBean.new_pergunta.prgta}" />
 				<br />
-		        <h:commandButton action="#{debateManagedBean.CadastrarPergunta()}" 
+		        <p:commandButton action="#{debateManagedBean.CadastrarPergunta()}" 
 		        value="Cadastrar" styleClass="rc-button rc-button-submit" />      
 		  </h:form>
       </fieldset>
