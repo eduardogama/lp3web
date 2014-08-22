@@ -1,7 +1,9 @@
 package beans;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 import de.data.IDAOUsuario;
 import de.data.bd.DAOUsuarioBD;
@@ -47,8 +49,8 @@ public class UsuarioManagedBean {
 	}
 
 	public String LogIn() {
-		this.user = daoUsuario.LogIn(login, pwd);
 		
+		this.user = daoUsuario.LogIn(login, pwd);
 		
 		if (this.user != null){
 			System.out.println(">>>> " + user.getLogin() +  " " + user.getPwd());
@@ -56,6 +58,7 @@ public class UsuarioManagedBean {
 			return "index?faces-redirect=true";
 		}else{
 			System.out.println("ENtrou");
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro!", "Usuario ou senha incorretos."));
 			return null;
 		}
 	}

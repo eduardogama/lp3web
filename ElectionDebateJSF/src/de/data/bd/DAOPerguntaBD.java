@@ -12,8 +12,6 @@ public class DAOPerguntaBD implements IDAOPergunta{
 
 	protected EntityManager entityManager;
 	
-	
-	
 	public DAOPerguntaBD() {
 		
 		this.entityManager = getEntityManager();

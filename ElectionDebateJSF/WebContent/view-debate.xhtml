@@ -29,9 +29,11 @@
 						<div class="content-debate">					
 							<h3><h:outputLabel value="#{candidato.nome}" /></h3>
 							<h3><h:outputLabel value="(#{candidato.partido})" /></h3>
-							<p:commandButton id="delete-debate" action="#{debateManagedBean.DeleteCandidato(candidato)}" 
+							<p:commandButton id="delete-debate" style="margin:2px;"
+											 action="#{debateManagedBean.DeleteCandidato(candidato)}" 
 											rendered="#{usuarioManagedBean.user != null}" value="delete" styleClass="rc-button debate-delete" />
-							<p:commandButton id="edit-debate" action="edit-candidato.xhtml" value="Editar" 
+							<p:commandButton id="edit-debate" style="margin:2px;" 
+											action="edit-candidato.xhtml" value="Editar" 
 											rendered="#{usuarioManagedBean.user != null}" styleClass="rc-button debate-delete">
 								<f:setPropertyActionListener target="#{debateManagedBean.edit_cdto}" value="#{candidato}" />
 							</p:commandButton>

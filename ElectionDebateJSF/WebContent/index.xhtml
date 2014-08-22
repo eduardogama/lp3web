@@ -128,11 +128,14 @@
 		  <h:form prependId="false" id="form-login">
 		        <label for="login">Login:</label>
 				<br />
-				<p:inputText id="login" value="#{usuarioManagedBean.login}" />
+				<p:messages  id="messages" showDetail="true" 
+				style="font-size:13px"
+				autoUpdate="true" closable="true"  ></p:messages>
+				<p:inputText id="login" required="true" requiredMessage="Login obrigatorio"  value="#{usuarioManagedBean.login}" />
 				<br />
 		        <label for="pwd">Senha:</label>
 				<br />
-				<p:inputText id="pwd" value="#{usuarioManagedBean.pwd}" />
+				<p:inputText id="pwd" required="true" requiredMessage="Senha obrigatoria" value="#{usuarioManagedBean.pwd}" />
 				<br />
 		        <p:commandButton  action="#{usuarioManagedBean.LogIn()}" 
 		        value="Entrar" styleClass="rc-button rc-button-submit" />      

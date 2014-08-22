@@ -109,14 +109,21 @@ public class DebateManagedBean {
 	}
 	
 	public String RemoverPergunta(Pergunta p){
+		System.out.println("[Remover Pergunta] ");
 		this.selected_dbte.getPerguntas().remove(p);
+		System.out.println("[Remover Pergunta] ");
+
 		daoPergunta.removePergunta(p);
+		System.out.println("[Remover Pergunta] ");
+
 		daoDebate.atualizaDebate(selected_dbte);
-		return "view-debate";
+		System.out.println("[Remover Pergunta] ");
+
+		return "view-debate?faces-redirect=true";
 	}
 	
 	public String EditarCandidato(){
-		return "view-debate";
+		return "view-debate?faces-redirect=true";
 	}
 
 	public Candidato getNew_cdto() {
